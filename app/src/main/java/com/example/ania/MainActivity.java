@@ -65,13 +65,7 @@ public class MainActivity extends AppCompatActivity {
         //BTE
         TelecomManager telecomManager = getSystemService(TelecomManager.class);
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
+
             String[] perm = {Manifest.permission.READ_PHONE_STATE};
             ActivityCompat.requestPermissions(this, perm, 0);
 
@@ -91,13 +85,7 @@ public class MainActivity extends AppCompatActivity {
             //  BluetoothDevice bluetoothDevice = getSystemService(BluetoothDevice.class);
             if (ActivityCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED ||
                     ActivityCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_SCAN) != PackageManager.PERMISSION_GRANTED) {
-                // TODO: Consider calling
-                //    ActivityCompat#requestPermissions
-                // here to request the missing permissions, and then overriding
-                //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-                //                                          int[] grantResults)
-                // to handle the case where the user grants the permission. See the documentation
-                // for ActivityCompat#requestPermissions for more details.
+
                 String[] perm = {Manifest.permission.BLUETOOTH_CONNECT, Manifest.permission.BLUETOOTH, Manifest.permission.BLUETOOTH_SCAN};
                 ActivityCompat.requestPermissions(this, perm, 0);
 
@@ -106,10 +94,6 @@ public class MainActivity extends AppCompatActivity {
             }
             //bluetoothAdapter.setName("CFS HSGA");
             Log.println(Log.WARN, "Tag", "Check my device " + bluetoothAdapter.getName());
-            // Poulate info
-           /* textView.append("\t" + bluetoothAdapter.getName() + "\n");
-            textView1.append("\t\t" + bluetoothAdapter.getAddress() + "\n");
-            textView2.append("\t"   + "\n");*/
 
 
             //Get scanner instance
@@ -187,9 +171,6 @@ public class MainActivity extends AppCompatActivity {
                     textView2.append("ON:");
                     textView3.append("Audio Connect:");
 
-                    //textView1.setText("\t\t" + bluetoothAdapter.getAddress() + "\n");
-                    //textView2.setText("\t" + bluetoothAdapter.isEnabled() + "\n");
-                    // textView3.setText("\t" + bluetoothDevice1.getName());
                     SystemHealthManager systemHealthManager = getSystemService(SystemHealthManager.class);
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R && SdkExtensions.getExtensionVersion(SdkExtensions.AD_SERVICES) >= 4) {
                         MeasurementManager measurementManager = getSystemService(MeasurementManager.class) ;
@@ -262,13 +243,7 @@ class Conf extends BluetoothGattService {
         @Override
         public List<BluetoothDevice> getConnectedDevices() {
             if (ActivityCompat.checkSelfPermission(context, android.Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED) {
-                // TODO: Consider calling
-                //    ActivityCompat#requestPermissions
-                // here to request the missing permissions, and then overriding
-                //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-                //                                          int[] grantResults)
-                // to handle the case where the user grants the permission. See the documentation
-                // for ActivityCompat#requestPermissions for more details.
+
 
             }
 
